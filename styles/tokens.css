@@ -1,0 +1,241 @@
+/* ==========================================================================
+   CarbonWise - design tokens
+   Palette derived from the CarbonWise mark (blue ring + jade leaf).
+   Every chart series colour below was validated with the dataviz palette
+   validator against the real surfaces (#FFFFFF light card, #191D22 dark card):
+     light  AC #2F6FED | Fan #10A277 | Light #EDA100  -> all-pairs PASS
+     dark   AC #4D8AF4 | Fan #19A87C | Light #C98500  -> all-pairs PASS
+   A 4th categorical hue fails the normal-vision floor, so devices cap at 3
+   series and any overflow folds into a neutral "Other".
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* surfaces: warm cream page, white cards */
+  --page:          #FAF9F5;
+  --page-2:        #F5F3ED;
+  --surface:       #FFFFFF;
+  --surface-2:     #F4F2EC;
+  --surface-3:     #EDEAE1;
+  --surface-sunk:  #F7F6F1;
+  --overlay:       rgba(22, 35, 59, .38);
+
+  /* lines */
+  --border:        #E7E3D9;
+  --border-soft:   #EFECE4;
+  --border-strong: #D8D3C6;
+
+  /* ink */
+  --ink:           #16233B;
+  --ink-2:         #5B6678;
+  --ink-3:         #6E7889;
+  --ink-inverse:   #FFFFFF;
+
+  /* brand blue: energy, technology, interactive */
+  --blue:          #2F6FED;
+  --blue-hover:    #2563DC;
+  --blue-press:    #1F5AD4;
+  --blue-ink:      #1F5AD4;
+  --blue-soft:     #E8F0FE;
+  --blue-soft-2:   #D7E5FD;
+
+  /* brand green: sustainability, savings, healthy state */
+  --green:         #10A277;
+  --green-hover:   #0E8F69;
+  --green-ink:     #0B7A5A;
+  --green-soft:    #E6F4EE;
+  --green-soft-2:  #D3EBE1;
+
+  /* status: fixed scale, never themed, always icon + label */
+  --ok:            #0CA30C;
+  --ok-ink:        #0B7A5A;
+  --ok-soft:       #E6F4EE;
+  --warn:          #FAB219;
+  --warn-ink:      #8A5B08;
+  --warn-soft:     #FBF2E0;
+  --crit:          #D03B3B;
+  --crit-ink:      #B5362C;
+  --crit-soft:     #FBEDEB;
+  --crit-hover:    #C0392F;
+
+  /* chart chrome */
+  --chart-surface: #FFFFFF;
+  --grid:          #EDEAE1;
+  --axis:          #D8D3C6;
+  --axis-text:     #6E7889;
+
+  /* chart series, validated (see header) */
+  --s-ac:          #2F6FED;
+  --s-fan:         #10A277;
+  --s-light:       #EDA100;
+  --s-other:       #A8A49B;
+  --s-compare:     #BDB9AE;
+
+  /* ordinal ramp, 5 steps, for the usage heat-map */
+  --ramp-1: #86B6EF;
+  --ramp-2: #5598E7;
+  --ramp-3: #2A78D6;
+  --ramp-4: #1C5CAB;
+  --ramp-5: #0D366B;
+  --ramp-0: #F1EFE8;
+
+  /* logo */
+  --logo-ring: #2F6FED;
+  --logo-leaf: #10A277;
+  --logo-rib:  #FFFFFF;
+
+  /* shape */
+  --r-xs: 6px;
+  --r-sm: 9px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-xl: 22px;
+  --r-pill: 999px;
+
+  /* elevation */
+  --sh-xs: 0 1px 2px rgba(22, 35, 59, .05);
+  --sh-sm: 0 1px 2px rgba(22, 35, 59, .05), 0 2px 6px rgba(22, 35, 59, .04);
+  --sh-md: 0 2px 4px rgba(22, 35, 59, .05), 0 8px 20px rgba(22, 35, 59, .07);
+  --sh-lg: 0 10px 34px rgba(22, 35, 59, .12), 0 2px 8px rgba(22, 35, 59, .06);
+  --sh-ring: 0 0 0 3px rgba(47, 111, 237, .18);
+
+  /* type */
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, monospace;
+
+  /* motion */
+  --ease: cubic-bezier(.2, .7, .3, 1);
+  --t-fast: 120ms;
+  --t: 200ms;
+  --t-slow: 340ms;
+
+  /* layout */
+  --sidebar-w: 256px;
+  --topbar-h: 60px;
+  --maxw: 1240px;
+}
+
+/* dark mode: selected steps, not an automatic flip */
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page:          #101317;
+    --page-2:        #15191E;
+    --surface:       #191D22;
+    --surface-2:     #20252B;
+    --surface-3:     #272D34;
+    --surface-sunk:  #14181C;
+    --overlay:       rgba(5, 7, 10, .62);
+    --border:        #2B3139;
+    --border-soft:   #232930;
+    --border-strong: #3A424C;
+    --ink:           #F2F4F7;
+    --ink-2:         #A7B0BE;
+    --ink-3:         #8B95A5;
+    --ink-inverse:   #0E1114;
+    --blue:          #4D8AF4;
+    --blue-hover:    #6C9FF7;
+    --blue-press:    #3D7BE8;
+    --blue-ink:      #7FA9F8;
+    --blue-soft:     rgba(77, 138, 244, .15);
+    --blue-soft-2:   rgba(77, 138, 244, .26);
+    --green:         #19A87C;
+    --green-hover:   #22BC8C;
+    --green-ink:     #3FBE93;
+    --green-soft:    rgba(25, 168, 124, .15);
+    --green-soft-2:  rgba(25, 168, 124, .26);
+    --ok:            #0CA30C;
+    --ok-ink:        #3FBE93;
+    --ok-soft:       rgba(12, 163, 12, .16);
+    --warn:          #FAB219;
+    --warn-ink:      #E3A83A;
+    --warn-soft:     rgba(250, 178, 25, .14);
+    --crit:          #D03B3B;
+    --crit-ink:      #F07A76;
+    --crit-soft:     rgba(208, 59, 59, .16);
+    --crit-hover:    #E04B4B;
+    --chart-surface: #191D22;
+    --grid:          #262C33;
+    --axis:          #3A424C;
+    --axis-text:     #8B95A5;
+    --s-ac:          #4D8AF4;
+    --s-fan:         #19A87C;
+    --s-light:       #C98500;
+    --s-other:       #5B6068;
+    --s-compare:     #4A525C;
+    --ramp-1: #184F95;
+    --ramp-2: #256ABF;
+    --ramp-3: #3987E5;
+    --ramp-4: #6DA7EC;
+    --ramp-5: #B7D3F6;
+    --ramp-0: #20252B;
+    --logo-rib: #191D22;
+    --sh-xs: 0 1px 2px rgba(0, 0, 0, .4);
+    --sh-sm: 0 1px 2px rgba(0, 0, 0, .4), 0 2px 6px rgba(0, 0, 0, .3);
+    --sh-md: 0 2px 4px rgba(0, 0, 0, .4), 0 8px 20px rgba(0, 0, 0, .34);
+    --sh-lg: 0 10px 34px rgba(0, 0, 0, .5), 0 2px 8px rgba(0, 0, 0, .4);
+    --sh-ring: 0 0 0 3px rgba(77, 138, 244, .3);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page:          #101317;
+  --page-2:        #15191E;
+  --surface:       #191D22;
+  --surface-2:     #20252B;
+  --surface-3:     #272D34;
+  --surface-sunk:  #14181C;
+  --overlay:       rgba(5, 7, 10, .62);
+  --border:        #2B3139;
+  --border-soft:   #232930;
+  --border-strong: #3A424C;
+  --ink:           #F2F4F7;
+  --ink-2:         #A7B0BE;
+  --ink-3:         #8B95A5;
+  --ink-inverse:   #0E1114;
+  --blue:          #4D8AF4;
+  --blue-hover:    #6C9FF7;
+  --blue-press:    #3D7BE8;
+  --blue-ink:      #7FA9F8;
+  --blue-soft:     rgba(77, 138, 244, .15);
+  --blue-soft-2:   rgba(77, 138, 244, .26);
+  --green:         #19A87C;
+  --green-hover:   #22BC8C;
+  --green-ink:     #3FBE93;
+  --green-soft:    rgba(25, 168, 124, .15);
+  --green-soft-2:  rgba(25, 168, 124, .26);
+  --ok:            #0CA30C;
+  --ok-ink:        #3FBE93;
+  --ok-soft:       rgba(12, 163, 12, .16);
+  --warn:          #FAB219;
+  --warn-ink:      #E3A83A;
+  --warn-soft:     rgba(250, 178, 25, .14);
+  --crit:          #D03B3B;
+  --crit-ink:      #F07A76;
+  --crit-soft:     rgba(208, 59, 59, .16);
+  --crit-hover:    #E04B4B;
+  --chart-surface: #191D22;
+  --grid:          #262C33;
+  --axis:          #3A424C;
+  --axis-text:     #8B95A5;
+  --s-ac:          #4D8AF4;
+  --s-fan:         #19A87C;
+  --s-light:       #C98500;
+  --s-other:       #5B6068;
+  --s-compare:     #4A525C;
+  --ramp-1: #184F95;
+  --ramp-2: #256ABF;
+  --ramp-3: #3987E5;
+  --ramp-4: #6DA7EC;
+  --ramp-5: #B7D3F6;
+  --ramp-0: #20252B;
+  --logo-rib: #191D22;
+  --sh-xs: 0 1px 2px rgba(0, 0, 0, .4);
+  --sh-sm: 0 1px 2px rgba(0, 0, 0, .4), 0 2px 6px rgba(0, 0, 0, .3);
+  --sh-md: 0 2px 4px rgba(0, 0, 0, .4), 0 8px 20px rgba(0, 0, 0, .34);
+  --sh-lg: 0 10px 34px rgba(0, 0, 0, .5), 0 2px 8px rgba(0, 0, 0, .4);
+  --sh-ring: 0 0 0 3px rgba(77, 138, 244, .3);
+}
